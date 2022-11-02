@@ -1,4 +1,4 @@
-import FirstPage from "./showcase/FirstPage";
+import FirstPage from "./showcase/components/FirstPage";
 
 function App() {
   return (
