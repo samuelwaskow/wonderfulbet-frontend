@@ -1,22 +1,124 @@
 {
+    "sports": [
+        {
+            "id": 1,
+            "name": "Basketball",
+            "icon": "sport-basketball.svg"
+        },
+        {
+            "id": 2,
+            "name": "Soccer",
+            "icon": "sport-soccer.svg"
+        },
+        {
+            "id": 3,
+            "name": "Volleyball",
+            "icon": "sport-volleyball.svg"
+        }
+    ],
+    "basketball": [
+        {
+            "id": 1,
+            "team1": "NY Knicks",
+            "team2": "PHI 76ers",
+            "datetime": "2022-11-04T13:45:00.000Z",
+            "bets": [
+                24,
+                32,
+                20
+            ]
+        },
+        {
+            "id": 2,
+            "team1": "CLE Cavaliers",
+            "team2": "DET Pistons",
+            "datetime": "2022-11-04T15:00:00.000Z",
+            "bets": [
+                5,
+                80,
+                20
+            ]
+        },
+        {
+            "id": 3,
+            "team1": "MIA Heat",
+            "team2": "IND Pacers",
+            "datetime": "2022-11-04T17:30:00.000Z",
+            "bets": [
+                12,
+                32,
+                20
+            ]
+        }
+    ],
     "soccer": [
         {
             "id": 1,
             "team1": "Feyenoord",
             "team2": "Lazio",
-            "datetime": "2022-10-103T13:45:00.000Z"
+            "datetime": "2022-10-10T13:45:00.000Z",
+            "bets": [
+                12,
+                2,
+                5
+            ]
         },
         {
             "id": 2,
             "team1": "Real Sociedad",
             "team2": "Man Utd",
-            "datetime": "2022-10-103T15:00:00.000Z"
+            "datetime": "2022-10-10T15:00:00.000Z",
+            "bets": [
+                8,
+                26,
+                11
+            ]
         },
         {
             "id": 3,
             "team1": "Olympiakos",
             "team2": "Nantes",
-            "datetime": "2022-10-103T17:30:00.000Z"
+            "datetime": "2022-10-10T17:30:00.000Z",
+            "bets": [
+                10,
+                18,
+                8
+            ]
+        }
+    ],
+    "volleyball": [
+        {
+            "id": 1,
+            "team1": "Suzano",
+            "team2": "Flamengo",
+            "datetime": "2022-11-06T17:45:00.000Z",
+            "bets": [
+                1,
+                2,
+                9
+            ]
+        },
+        {
+            "id": 2,
+            "team1": "Radomka Radom",
+            "team2": "Uni Opole",
+            "datetime": "2022-11-06T19:00:00.000Z",
+            "bets": [
+                32,
+                50,
+                20
+            ]
+        },
+        {
+            "id": 3,
+            "team1": "Amuvoca",
+            "team2": "Paracao",
+            "datetime": "2022-11-06T20:30:00.000Z",
+            "bets": [
+                11,
+                22,
+                5
+            ]
         }
     ]
 }

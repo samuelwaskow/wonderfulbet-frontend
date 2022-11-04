@@ -1,35 +1,28 @@
 import Header from "./components/Header"
 import Hero from "./components/Hero"
-import Home from "./components/Home"
+import Home from "./components/loggedin/Home"
 import { useState } from "react"
 
 function App() {
 
-  const [state, setState] = useState(() => {
-    const savedUser = localStorage.getItem("username")
-    return {
-      username: savedUser
-    }
+  const [username, setUsername] = useState(() => {
+    return localStorage.getItem("username")
   })
 
   const storeUser = (username) => {
     localStorage.setItem("username", username)
-    setState({
-      username: username
-    })
+    setUsername(username)
   }
 
   const removeUser = () => {
     localStorage.removeItem("username")
-    setState({
-      username: ''
-    })
+    setUsername('')
   }
 
   return (
     <div className="container py-4">
-      <Header username={state.username} logout={removeUser}/>
-      {state.username ? <Home /> : <Hero storeUser={storeUser} />}
+      <Header username={username} logout={removeUser}/>
+      {username ? <Home /> : <Hero storeUser={storeUser} />}
     </div>
   );
 }
