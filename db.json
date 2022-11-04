@@ -1,0 +1,22 @@
+{
+    "soccer": [
+        {
+            "id": 1,
+            "team1": "Feyenoord",
+            "team2": "Lazio",
+            "datetime": "2022-10-103T13:45:00.000Z"
+        },
+        {
+            "id": 2,
+            "team1": "Real Sociedad",
+            "team2": "Man Utd",
+            "datetime": "2022-10-103T15:00:00.000Z"
+        },
+        {
+            "id": 3,
+            "team1": "Olympiakos",
+            "team2": "Nantes",
+            "datetime": "2022-10-103T17:30:00.000Z"
+        }
+    ]
+}
