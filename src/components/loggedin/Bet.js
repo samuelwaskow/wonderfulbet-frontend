@@ -1,5 +1,6 @@
 import React from 'react'
-import { FaTimes } from 'react-icons/fa'
+import { FaTimes, FaUserFriends } from 'react-icons/fa'
+
 
 const Bet = ({ bet }) => {
 
@@ -17,14 +18,14 @@ const Bet = ({ bet }) => {
             <div className='row'>
                 <div className='col-9'>
                     <div className="row mb-2">
-                        <div className='col'>
-                            <h6 className="float-right">{bet.team1}</h6>
+                        <div className='col text-center'>
+                            <h6>{bet.team1}</h6>
                         </div>
                         <div className='col text-center'>
                             <FaTimes />
                         </div>
-                        <div className='col'>
-                            <h6 className='float-left'>{bet.team2}</h6>
+                        <div className='col text-center'>
+                            <h6>{bet.team2}</h6>
                         </div>
                     </div>
                     <div className='row'>
@@ -43,7 +44,7 @@ const Bet = ({ bet }) => {
                     </div>
                     <div className='row mt-5'>
                         <div className='col'>
-                            <small className='float-end'>{total} bets</small>
+                            <small className='float-end'>{total} <FaUserFriends /></small>
                         </div>
                     </div>
                 </div>

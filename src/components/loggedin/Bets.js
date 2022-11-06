@@ -11,7 +11,7 @@ const Bets = ({ selectedSport }) => {
     useEffect(() => {
 
         const fetchBets = async () => {
-            const res = await fetch(`http://localhost:5000/${sport}`)
+            const res = await fetch(`${process.env.REACT_APP_API_URL}${sport}`)
             return await res.json()
         }
 
@@ -25,6 +25,7 @@ const Bets = ({ selectedSport }) => {
     return (
         <>
             <h3>Bets</h3>
+            
             <div className="list-group list-group-flush">
                 {
                     bets.map((b) => (

@@ -9,7 +9,7 @@ const Sports = ({ selectedSport, selectSport }) => {
     useEffect(() => {
 
         const fetchSports = async () => {
-            const res = await fetch('http://localhost:5000/sports')
+            const res = await fetch(`${process.env.REACT_APP_API_URL}sports`)
             return await res.json()
         }
 
