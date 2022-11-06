@@ -1,17 +1,64 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaTimes, FaUserFriends } from 'react-icons/fa'
 
+const Bet = ({ sport, bet }) => {
 
-const Bet = ({ bet }) => {
+    const [team1, setTeam1] = useState(false)
+    const [draw, setDraw] = useState(false)
+    const [team2, setTeam2] = useState(false)
 
     const dt = new Date(bet.datetime)
-    const total = bet.bets.reduce((acc, obj) => {
+
+    const statTotal = bet.bets.reduce((acc, obj) => {
         return acc + obj
     }, 0)
 
-    const team1 = (bet.bets[0] / total) * 100
-    const draw = (bet.bets[1] / total) * 100
-    const team2 = (bet.bets[2] / total) * 100
+    const statTeam1 = (bet.bets[0] / statTotal) * 100
+    const statDraw = (bet.bets[1] / statTotal) * 100
+    const statTeam2 = (bet.bets[2] / statTotal) * 100
+
+    useEffect(() => {
+
+        setTeam1(bet.mine === 0)
+        setDraw(bet.mine === 1)
+        setTeam2(bet.mine === 2)
+
+    }, [bet.mine])
+
+    const addBet = async (b) => {
+        const res = await fetch(`${process.env.REACT_APP_API_URL}${sport}/${b.id}`,
+            {
+                method: 'PUT',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(b)
+            }
+        )
+    }
+
+    const clickBet = (choice) => {
+
+        if(!team1 && !draw && !team2){
+            bet.bets[choice]++
+        }
+
+        setTeam1(false)
+        setDraw(false)
+        setTeam2(false)
+
+        if(choice === 0){
+            setTeam1(true)
+        } else if(choice === 1){
+            setDraw(true)
+        } else {
+            setTeam2(true)
+        }
+
+        bet.mine = choice
+
+        addBet(bet)
+    }
 
     return (
         <div className="list-group-item list-group-item-action" aria-current="true">
@@ -30,9 +77,9 @@ const Bet = ({ bet }) => {
                     </div>
                     <div className='row'>
                         <div className="btn-group" role="group" aria-label="Basic outlined example">
-                            <button type="button" className="btn btn-outline-primary">{team1.toFixed(2)} %</button>
-                            <button type="button" className="btn btn-outline-primary">{draw.toFixed(2)} %</button>
-                            <button type="button" className="btn btn-outline-primary">{team2.toFixed(2)} %</button>
+                            <button type="button" className={`btn btn-outline-primary ${team1 ? 'active' : ''}`} onClick={() => clickBet(0)}>{statTeam1.toFixed(2)} %</button>
+                            <button type="button" className={`btn btn-outline-primary ${draw ? 'active' : ''}`} onClick={() => clickBet(1)}>{statDraw.toFixed(2)} %</button>
+                            <button type="button" className={`btn btn-outline-primary ${team2 ? 'active' : ''}`} onClick={() => clickBet(2)}>{statTeam2.toFixed(2)} %</button>
                         </div>
                     </div>
                 </div>
@@ -44,7 +91,7 @@ const Bet = ({ bet }) => {
                     </div>
                     <div className='row mt-5'>
                         <div className='col'>
-                            <small className='float-end'>{total} <FaUserFriends /></small>
+                            <small className='float-end'>{statTotal} <FaUserFriends /></small>
                         </div>
                     </div>
                 </div>

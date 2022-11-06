@@ -29,7 +29,7 @@ const Bets = ({ selectedSport }) => {
             <div className="list-group list-group-flush">
                 {
                     bets.map((b) => (
-                        <Bet key={b.id} bet={b} />
+                        <Bet key={b.id} sport={sport} bet={b} />
                     ))
                 }
             </div>
