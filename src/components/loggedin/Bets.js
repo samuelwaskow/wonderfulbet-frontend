@@ -3,12 +3,10 @@ import Bet from './Bet'
 import Loading from './Loading'
 import useFetch from './useFetch'
 
-const Bets = ({ selectedSport }) => {
+const Bets = ({ selectedSport, wallet }) => {
 
     const sport = selectedSport.toLowerCase()
     const [bets] = useFetch(`${process.env.REACT_APP_API_URL}${sport}`)
-
-    console.log(bets)
 
     return (
         <>
@@ -20,7 +18,7 @@ const Bets = ({ selectedSport }) => {
                 }
                 {
                     bets.data && bets.data.map((b) => (
-                        <Bet key={b.id} sport={sport} bet={b} />
+                        <Bet key={b.id} sport={sport} bet={b} wallet={wallet}/>
                     ))
                 }
             </div>

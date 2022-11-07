@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { FaTimes, FaUserFriends } from 'react-icons/fa'
 import useMyBet from './useMyBet'
 
-const Bet = ({ sport, bet }) => {
+const Bet = ({ sport, bet, wallet }) => {
 
     const [mine, setMine] = useMyBet(bet.mine)
 
@@ -32,11 +32,25 @@ const Bet = ({ sport, bet }) => {
                 body: JSON.stringify(b)
             }
         )
+
+        if (wallet.coins != null) {
+            console.log(wallet.coins)
+            wallet.coins--;
+            await fetch(`${process.env.REACT_APP_API_URL}wallet`,
+                {
+                    method: 'PUT',
+                    headers: {
+                        'Content-type': 'application/json'
+                    },
+                    body: JSON.stringify(wallet)
+                }
+            )
+        }
     }
 
     const clickBet = (choice) => {
 
-        if(mine === -1){
+        if (mine === -1) {
             bet.bets[choice]++
         }
         setMine(choice)
