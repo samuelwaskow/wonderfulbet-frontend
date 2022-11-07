@@ -22,7 +22,7 @@
       "team1": "NY Knicks",
       "team2": "PHI 76ers",
       "datetime": "2022-11-04T13:45:00.000Z",
-      "mine": 2,
+      "mine": 1,
       "bets": [
         24,
         32,
@@ -46,7 +46,7 @@
       "team1": "MIA Heat",
       "team2": "IND Pacers",
       "datetime": "2022-11-04T17:30:00.000Z",
-      "mine": 1,
+      "mine": 2,
       "bets": [
         12,
         33,
@@ -72,7 +72,7 @@
       "team1": "Real Sociedad",
       "team2": "Man Utd",
       "datetime": "2022-10-10T15:00:00.000Z",
-      "mine": 2,
+      "mine": 0,
       "bets": [
         11,
         28,
@@ -98,7 +98,7 @@
       "team1": "Suzano",
       "team2": "Flamengo",
       "datetime": "2022-11-06T17:45:00.000Z",
-      "mine": 0,
+      "mine": 2,
       "bets": [
         5,
         3,
@@ -110,7 +110,7 @@
       "team1": "Radomka Radom",
       "team2": "Uni Opole",
       "datetime": "2022-11-06T19:00:00.000Z",
-      "mine": 1,
+      "mine": 0,
       "bets": [
         32,
         51,
@@ -122,9 +122,9 @@
       "team1": "Amuvoca",
       "team2": "Paracao",
       "datetime": "2022-11-06T20:30:00.000Z",
-      "mine": -1,
+      "mine": 1,
       "bets": [
-        12,
+        13,
         22,
         5
       ]

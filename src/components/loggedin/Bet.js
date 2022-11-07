@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { FaTimes, FaUserFriends } from 'react-icons/fa'
+import useMyBet from './useMyBet'
 
 const Bet = ({ sport, bet }) => {
 
-    const [team1, setTeam1] = useState(false)
-    const [draw, setDraw] = useState(false)
-    const [team2, setTeam2] = useState(false)
+    const [mine, setMine] = useMyBet(bet.mine)
 
     const dt = new Date(bet.datetime)
 
@@ -19,14 +18,12 @@ const Bet = ({ sport, bet }) => {
 
     useEffect(() => {
 
-        setTeam1(bet.mine === 0)
-        setDraw(bet.mine === 1)
-        setTeam2(bet.mine === 2)
+        setMine(bet.mine)
 
-    }, [bet.mine])
+    }, [setMine, bet.mine])
 
     const addBet = async (b) => {
-        const res = await fetch(`${process.env.REACT_APP_API_URL}${sport}/${b.id}`,
+        await fetch(`${process.env.REACT_APP_API_URL}${sport}/${b.id}`,
             {
                 method: 'PUT',
                 headers: {
@@ -39,24 +36,11 @@ const Bet = ({ sport, bet }) => {
 
     const clickBet = (choice) => {
 
-        if(!team1 && !draw && !team2){
+        if(mine === -1){
             bet.bets[choice]++
         }
-
-        setTeam1(false)
-        setDraw(false)
-        setTeam2(false)
-
-        if(choice === 0){
-            setTeam1(true)
-        } else if(choice === 1){
-            setDraw(true)
-        } else {
-            setTeam2(true)
-        }
-
+        setMine(choice)
         bet.mine = choice
-
         addBet(bet)
     }
 
@@ -77,9 +61,9 @@ const Bet = ({ sport, bet }) => {
                     </div>
                     <div className='row'>
                         <div className="btn-group" role="group" aria-label="Basic outlined example">
-                            <button type="button" className={`btn btn-outline-primary ${team1 ? 'active' : ''}`} onClick={() => clickBet(0)}>{statTeam1.toFixed(2)} %</button>
-                            <button type="button" className={`btn btn-outline-primary ${draw ? 'active' : ''}`} onClick={() => clickBet(1)}>{statDraw.toFixed(2)} %</button>
-                            <button type="button" className={`btn btn-outline-primary ${team2 ? 'active' : ''}`} onClick={() => clickBet(2)}>{statTeam2.toFixed(2)} %</button>
+                            <button type="button" className={`btn btn-outline-primary ${mine === 0 ? 'active' : ''}`} onClick={() => clickBet(0)}>{statTeam1.toFixed(2)} %</button>
+                            <button type="button" className={`btn btn-outline-primary ${mine === 1 ? 'active' : ''}`} onClick={() => clickBet(1)}>{statDraw.toFixed(2)} %</button>
+                            <button type="button" className={`btn btn-outline-primary ${mine === 2 ? 'active' : ''}`} onClick={() => clickBet(2)}>{statTeam2.toFixed(2)} %</button>
                         </div>
                     </div>
                 </div>
