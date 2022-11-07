@@ -1,6 +1,6 @@
 {
   "wallet": {
-    "coins": 86
+    "coins": 56
   },
   "sports": [
     {
@@ -25,7 +25,7 @@
       "team1": "NY Knicks",
       "team2": "PHI 76ers",
       "datetime": "2022-11-04T13:45:00.000Z",
-      "mine": 1,
+      "mine": 2,
       "bets": [
         24,
         32,
@@ -37,7 +37,7 @@
       "team1": "CLE Cavaliers",
       "team2": "DET Pistons",
       "datetime": "2022-11-04T15:00:00.000Z",
-      "mine": 1,
+      "mine": 0,
       "bets": [
         6,
         80,
@@ -63,7 +63,7 @@
       "team1": "Feyenoord",
       "team2": "Lazio",
       "datetime": "2022-10-10T13:45:00.000Z",
-      "mine": 1,
+      "mine": 2,
       "bets": [
         13,
         3,
@@ -75,7 +75,7 @@
       "team1": "Real Sociedad",
       "team2": "Man Utd",
       "datetime": "2022-10-10T15:00:00.000Z",
-      "mine": 1,
+      "mine": 2,
       "bets": [
         11,
         28,
@@ -87,7 +87,7 @@
       "team1": "Olympiakos",
       "team2": "Nantes",
       "datetime": "2022-10-10T17:30:00.000Z",
-      "mine": 1,
+      "mine": 0,
       "bets": [
         11,
         18,
@@ -101,7 +101,7 @@
       "team1": "Suzano",
       "team2": "Flamengo",
       "datetime": "2022-11-06T17:45:00.000Z",
-      "mine": 2,
+      "mine": 1,
       "bets": [
         5,
         3,
@@ -125,7 +125,7 @@
       "team1": "Amuvoca",
       "team2": "Paracao",
       "datetime": "2022-11-06T20:30:00.000Z",
-      "mine": 0,
+      "mine": 2,
       "bets": [
         13,
         22,

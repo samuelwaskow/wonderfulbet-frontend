@@ -22,41 +22,39 @@ const Bet = ({ sport, bet, coins, setWallet }) => {
 
     }, [setMine, bet.mine])
 
-    const addBet = async (b) => {
-        await fetch(`${process.env.REACT_APP_API_URL}${sport}/${b.id}`,
-            {
-                method: 'PUT',
-                headers: {
-                    'Content-type': 'application/json'
-                },
-                body: JSON.stringify(b)
-            }
-        )
 
-        const newCoins = coins - 1
-        setWallet(newCoins)
-        await fetch(`${process.env.REACT_APP_API_URL}wallet`,
-            {
-                method: 'PUT',
-                headers: {
-                    'Content-type': 'application/json'
-                },
-                body: JSON.stringify({
-                    coins: newCoins
-                })
-            }
-        )
-
-    }
-
+    /**
+     * Updates the bet on the API and decreases value from the wallet owner
+     * @param {number} choice Bet option
+     */
     const clickBet = (choice) => {
 
         if (mine === -1) {
             bet.bets[choice]++
         }
-        setMine(choice)
         bet.mine = choice
-        addBet(bet)
+
+        const options = {
+            method: 'PUT',
+            headers: {
+                'Content-type': 'application/json'
+            }
+        }
+
+        options.body = JSON.stringify(bet)
+
+        fetch(`${process.env.REACT_APP_API_URL}${sport}/${bet.id}`, options)
+            .then((res) => res.json())
+            .then(setMine(bet.mine))
+            .catch(error => console.error('There was an error!', error));
+
+        const newCoins = coins - 1
+
+        options.body = JSON.stringify({ coins: newCoins })
+        fetch(`${process.env.REACT_APP_API_URL}wallet`, options)
+            .then((res) => res.json())
+            .then(setWallet(newCoins))
+            .catch(error => console.error('There was an error!', error));
     }
 
     return (

@@ -16,10 +16,9 @@ const Home = () => {
   }
 
   useEffect(() => {
-    if(walletApi.data != null){
+    if (walletApi.data != null) {
       setWallet(walletApi.data.coins)
     }
-
   }, [walletApi.data])
 
   return (
@@ -29,8 +28,8 @@ const Home = () => {
           <Sports selectedSport={sport} selectSport={handleSportChange} />
         </div>
         <div className='col-9'>
-          <Wallet coins={wallet}/>
-          <Bets selectedSport={sport} coins={wallet} setWallet={setWallet}/>
+          <Wallet coins={wallet} />
+          <Bets selectedSport={sport} coins={wallet} setWallet={setWallet} />
         </div>
       </div>
     </div>
