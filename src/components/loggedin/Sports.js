@@ -8,16 +8,10 @@ const Sports = ({ selectedSport, selectSport }) => {
 
     useEffect(() => {
 
-        const fetchSports = async () => {
-            const res = await fetch(`${process.env.REACT_APP_API_URL}sports`)
-            return await res.json()
-        }
+        fetch(`${process.env.REACT_APP_API_URL}sports`)
+        .then((res) => res.json())
+        .then((data) => setSports(data))
 
-        const getSports = async () => {
-            const sportsFromServer = await fetchSports()
-            setSports(sportsFromServer)
-        }
-        getSports()
     }, [])
 
     return (

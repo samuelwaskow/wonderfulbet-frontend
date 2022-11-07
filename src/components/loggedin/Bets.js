@@ -10,16 +10,10 @@ const Bets = ({ selectedSport }) => {
 
     useEffect(() => {
 
-        const fetchBets = async () => {
-            const res = await fetch(`${process.env.REACT_APP_API_URL}${sport}`)
-            return await res.json()
-        }
-
-        const getBets = async () => {
-            const betsFromServer = await fetchBets()
-            setBets(betsFromServer)
-        }
-        getBets()
+        fetch(`${process.env.REACT_APP_API_URL}${sport}`)
+        .then((res) => res.json())
+        .then((data) => setBets(data))
+        
     }, [sport])
 
     return (
